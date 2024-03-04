@@ -1,0 +1,27 @@
+*~
+*.pyc
+*#
+.#*
+*.pkl
+*.zip
+*.bak
+*.bag
+*.py~
+frames.pdf
+frames.gv
+*.jpeg
+
+# ROS specific files and folders #
+##################################
+build
+devel
+install
+log
+.rosinstall
+.catkin_tools
+.catkin_workspace
+src/CMakeLists.txt
+logs
+
+# specific repo
+###############
