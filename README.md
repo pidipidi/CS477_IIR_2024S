@@ -23,7 +23,7 @@ Let's copy the the class repo, install dependencies, and build it!
 ~~~~bash
 git clone https://github.com/pidipidi/CS477_IIR_2024S
 cd ..
-source ./src/cs477_IIR/install.sh
+source ./src/CS477_IIR_2024S/install.sh
 ~~~~
 
 Open a new terminal, source your main ROS2 environment and source this repo as an overlay.

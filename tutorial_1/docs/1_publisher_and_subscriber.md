@@ -3,7 +3,7 @@
 # Practice 1: Message publication and subscription
 Let's test topic publisher and listener! First, check the two files from following directory.
 ~~~~bash
-cd ~/cs477_ws/src/cs477_IIR/tutorial_1/tutorial_1/
+cd ~/cs477_ws/src/CS477_IIR_2024S/tutorial_1/tutorial_1/
 ~~~~
 - `talker.py`
 - `listener.py`
