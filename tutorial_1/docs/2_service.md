@@ -19,7 +19,7 @@ ros2 run tutorial_1 service_client
 You can request to the server via your terminal:
 
 ~~~~bash
-ros2 service call /tutorial1 std_srvs/srv/SetBool "data: false""
+ros2 service call /tutorial1 std_srvs/srv/SetBool "data: false"
 ~~~~
 
 `std_srvs/srv/SetBool` is service type that used in this tutorial. You can check this at, https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html.
