@@ -12,7 +12,7 @@ If you run this, the parameter client will first declare the parameter `tutorial
 ## Commandline Tools
 Make sure the previous node is running.
 
-Terminal 2: You can check the custom parameter `my_parameter`by 
+Terminal 2: You can check the custom parameter `/tutorial1`by 
 ~~~~bash
 ros2 param list
 ~~~~
