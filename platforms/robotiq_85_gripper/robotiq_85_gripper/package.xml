@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robotiq_85_gripper</name>
+  <version>1.0.1</version>
+  <description>Robotiq 85 Gripper Package</description>
+  <maintainer email="dev@stanleyinnovation.com">Patrick Hussey</maintainer>
+  <license>BSD</license>
+
+  <url type="repository">https://github.com/StanleyInnovation/robotiq_85_gripper</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>robotiq_85_description</exec_depend>
+  <exec_depend>robotiq_85_driver</exec_depend>
+  <exec_depend>robotiq_85_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

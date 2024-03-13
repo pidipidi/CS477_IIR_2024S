@@ -1,0 +1,9 @@
+repositories:
+  src/CS477_IIR_2024S/sensors/realsense-ros:
+    type: git
+    url: git@github.com:IntelRealSense/realsense-ros.git
+    version: 4.51.1
+  src/CS477_IIR_2024S/sensors/realsense_gazebo_plugin:
+    type: git
+    url: git@github.com:pal-robotics/realsense_gazebo_plugin.git
+    version: foxy-devel

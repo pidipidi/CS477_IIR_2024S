@@ -22,6 +22,7 @@ log
 .catkin_workspace
 src/CMakeLists.txt
 logs
+__pycache__
 
 # specific repo
 ###############

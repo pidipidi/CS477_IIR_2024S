@@ -23,9 +23,11 @@ Let's copy the the class repo, install dependencies, and build it!
 ~~~~bash
 git clone https://github.com/pidipidi/CS477_IIR_2024S
 cd ..
-# source ./src/CS477_IIR_2024S/install.sh
-colcon build --symlink-install
-source ./install/local_setup.bash
+
+# for AMD architecture user,
+source ./src/CS477_IIR_2024S/install.sh
+# for ARM architecture user,
+source ./src/CS477_IIR_2024S/install_arm.sh
 ~~~~
 
 Open a new terminal, source your main ROS2 environment and source this repo as an overlay.

@@ -1,0 +1,34 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100 #Hz
+
+    # Gripper controller
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints:
+        - robotiq_85_left_knuckle_joint
+      publish_rate: 50
+      gains:
+        robotiq_85_left_knuckle_joint: {p: 1.0, i: 0.0, d: 0.0}  
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    use_sim_time: true
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - robotiq_85_left_knuckle_joint
+    interface_name: position
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    constraints:
+      stopped_velocity_tolerance: 0.2
+      goal_time: 0.0
+      shoulder_pan_joint: { trajectory: 0.2, goal: 0.1 }
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find-pkg-share ur5_ros2_gazebo)/launch/ur5_simulation.launch.py">
+    <arg name="gazebo_models" value="$(find-pkg-share manip_challenge)/data/models:$(find ur5_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+    <arg name="world_name" value="$(find manip_challenge)/data/worlds/ur5_picking_challenge.world" />
+  </include>
+
+  <node name="set_objects" pkg="manip_challenge" type="add_object.py"
+        output="screen"
+        launch-prefix="bash -c 'sleep 5; rosservice call
+                       gazebo/unpause_physics {};sleep 1 ;$0 $@' "/>
+  
+</launch>

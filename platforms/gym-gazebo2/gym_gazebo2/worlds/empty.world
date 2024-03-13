@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- Accelerated world. This world pushes gazebo simulation to the maximum
+    the MARA is able to handle. These values seem reasonable and should work
+    with other robots too. Update the values to be closer to the defaults in case of unexpected behaviors.-->
+    
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+        <argument>model_states:=model_states_demo</argument>
+        <argument>link_states:=link_states_demo</argument>
+      </ros>
+
+      <update_rate>1.0</update_rate>
+    </plugin>
+    
+    <plugin name="gazebo_ros_properties" filename="libgazebo_ros_properties.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>1.0</update_rate>
+    </plugin>    
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0 -3 2 0 0.3 1.57</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>

@@ -1,0 +1,54 @@
+arm_client:
+  ros__parameters:
+    sim: True
+    controller_ns: "ur5_controller"
+    timeout_scale: 0.6
+    arm_base_frame: "base_link"
+    ee_frame: "robotiq_85_base_link"
+    gripper_open_pos: 0.0
+    gripper_close_pos: 1.1
+    gripper_action_topic: "gripper_controller/follow_joint_trajectory"
+    init_config: [0.0, -1.570796, 1.570796, -1.570796, -1.570796, 0.785]
+    observe_config: [-0.541052,  -1.43117, 0.296706, -0.418879, -1.570796,  -2.1293]
+    tool_offset_frame: [0.15, 0.003, 0.0 ,0.0, -1.5707, 0.0]
+world_xml_loader:
+  ros__parameters:
+    sim: True
+    world_xml_file: "world_xml.json"
+world_model_publisher:
+  ros__parameters:
+    sim: True
+    world_channel: "world_model"
+    fact_channel: "add_facts"
+    obj_channel: "add_objects"
+    world_frame: "world"
+    arm_base_frame: "base_link"
+    ee_frame: "robotiq_85_base_link"
+    tool_frame: [0.15, 0.003, 0.0, 0.0, -1.5707, 0.0]
+    black_list: ['ur5', "ground_plane"]
+world_model_service:
+  ros__parameters:
+    world_frame: "base_footprint"
+    collision_offset: 0.02
+    world_channel: "world_model"
+tree:
+  ros__parameters:
+    sim: True
+    gripper_open_pos: 0.0
+    gripper_close_pos: 1.1
+    gripper_open_force: 0.1
+    gripper_close_force: 0.001
+    init_config: [0.0, -1.570796, 1.570796, -1.570796, -1.570796, 0.785]
+    observe_config: [-0.541052,  -1.43117, 0.296706, -0.418879, -1.570796,  -2.1293]
+    pose_srv_channel: "/get_object_pose"
+    grasp_pose_srv_channel: "/get_object_grasp_pose"
+    height_srv_channel: "/get_object_height"
+    rnd_pose_srv_channel: "/get_object_rnd_pose"
+    close_pose_srv_channel: "/get_object_close_pose"
+    world_frame: "world"
+    arm_base_frame: "base_link"
+    grasp_offset_z: 0.02
+    top_offset_z: 0.15
+
+
+    

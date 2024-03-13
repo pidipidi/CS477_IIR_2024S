@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="ur5_ros2control" params="prefix 
+                                              hardwareInterface" >
+
+    <!-- ROS2_CONTROL tag name: -->
+    <xacro:property name="name" value="GazeboSystem"/>
+
+    <!-- ===== Gazebo ROS2_CONTROL plugin ===== -->
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control"> 
+        <robot_param>robot_description</robot_param>
+        <robot_param_node>robot_state_publisher</robot_param_node>
+        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+        <xacro:if value="${hardwareInterface == 'PositionJointInterface'}">        
+          <parameters>$(find ur5_ros2_gazebo)/config/ur5_robotiq_2f85_position_controller_1dof_sim.yaml</parameters>
+        </xacro:if>
+        <xacro:unless value="${hardwareInterface == 'PositionJointInterface'}">        
+          <parameters>$(find ur5_ros2_gazebo)/config/ur5_robotiq_2f85_effort_controller_1dof_sim.yaml</parameters>
+        </xacro:unless>
+      </plugin>
+    </gazebo>
+    
+    <!-- ========== ROS2 CONTROL ========== -->
+
+    <ros2_control name="${name}" type="system">
+
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+
+      <joint name="${prefix}shoulder_pan_joint">
+        <xacro:if value="${hardwareInterface == 'PositionJointInterface'}">        
+          <command_interface name="position">
+            <param name="min">${-2*pi}</param>
+            <param name="max">${2*pi}</param>
+          </command_interface>
+          <command_interface name="velocity">
+            <param name="min">-3.15</param>
+            <param name="max">3.15</param>
+          </command_interface>
+        </xacro:if>
+        <xacro:unless value="${hardwareInterface == 'PositionJointInterface'}">        
+          <command_interface name="effort">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+          </command_interface>        
+        </xacro:unless>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+        <!-- <param name="initial_position">${initial_positions['shoulder_pan_joint']}</param>   initial position for the FakeSystem -->
+      </joint>
+    </ros2_control>
+
+    <gazebo reference="${prefix}shoulder_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}upper_arm_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}forearm_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_1_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_3_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_2_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}ee_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

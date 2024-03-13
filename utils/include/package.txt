@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>py_trees_ros</name>
+  <version>2.2.2</version>
+  <description>
+    ROS2 extensions and behaviours for py_trees.
+  </description>
+
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://py-trees-ros.readthedocs.io/en/release-1.2.x/</url>
+  <url type="repository">https://github.com/stonier/py_trees_ros</url>
+  <url type="bugtracker">https://github.com/stonier/py_trees_ros/issues</url>
+
+  <author>Daniel Stonier</author>
+  <author>Michal Staniaszek</author>
+  <author>Naveed Usmani</author>
+
+  <build_depend>python3-setuptools</build_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <doc_depend>python3-sphinx</doc_depend>
+  <doc_depend>python3-sphinx-argparse</doc_depend>
+  <doc_depend>python3-sphinx-rtd-theme</doc_depend>
+
+  <!-- core dependencies -->
+  <!--depend>py_trees</depend-->
+  <depend>py_trees_ros_interfaces</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>rclpy</depend>
+  <depend>ros2topic</depend>
+  <depend>std_msgs</depend>
+  <depend>unique_identifier_msgs</depend>
+
+  <!-- behaviour dependencies (subscribers, transforms, ...) -->
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry2</depend>
+
+  <!-- testing dependencies -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

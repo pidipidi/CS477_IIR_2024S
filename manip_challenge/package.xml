@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>manip_challenge</name>
+  <version>0.0.0</version>
+  <description>The manip_challenge package</description>
+
+  <maintainer email="daehyung@kaist.ac.kr">Daehyung Park</maintainer>
+  <license>BSD</license>
+  <author email="daehyung@kaist.ac.kr">Daehyung Park</author>
+  
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export> 
+</package>

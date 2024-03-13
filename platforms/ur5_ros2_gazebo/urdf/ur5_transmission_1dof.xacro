@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="ur5_transmission" params="prefix hardwareInterface">
+
+    <transmission name="${prefix}shoulder_pan_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}shoulder_pan_joint">
+        <hardwareInterface>${hardwareInterface}</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}shoulder_pan_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>
