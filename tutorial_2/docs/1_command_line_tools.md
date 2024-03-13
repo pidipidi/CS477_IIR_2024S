@@ -1,6 +1,6 @@
 # Command-line Tools
 
-## roslaunch and rosnode
+## ros2 launch and ros2 node
 Launch a Gazebo with the UR5 robot:
 ~~~~bash
 # select option 1
@@ -18,7 +18,7 @@ ros2 node info $node_name$
 ~~~~
 
 
-## rosrun
+## ros2 run
 This command is used for running an executable file in a specified package.
 ~~~~bash
 ros2 run tutorial_2 1_printout
