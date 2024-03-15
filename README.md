@@ -73,7 +73,7 @@ source ~/.bashrc
 
 # Troubleshooting
 
-## 1. Could not determine ref type of version : git@github.com: Permission denied (publickey)
+## 1. `Could not determine ref type of version : git@github.com: Permission denied (publickey)`
 
 Please set up your ssh key. You can follow the procedure in the [link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
@@ -86,7 +86,9 @@ colcon build --symlink-install --parallel-workers=1 --cmake-args -DCMAKE_CXX_FLA
 ~~~~
 
 If the error persists and you are using VM for the ubuntu, you can try to increase the usage of your VM.
+
 If you are using wsl2, you can follow [link](https://fizzylogic.nl/2023/01/05/how-to-configure-memory-limits-in-wsl2).
+
 If you are using UTM, you can find memory setting slot in: select your VM image -> click upperwrite setting button(edit selected VM) -> system -> system.
 
 We recommend you to allocate as much as you can, but the minimal guideline is 12GB.
@@ -94,7 +96,9 @@ We recommend you to allocate as much as you can, but the minimal guideline is 12
 ## 3. gazebo dies after clean installation
 
 First, make sure that all the packages are successfully built before running the script.
+
 If you checked all installation/build is properly done, the problem might be solved by allocating more memory since gazebo depends heavily on RAM specification.
+
 Check above section about allocating more memory to your VM.
 
 # ETC
