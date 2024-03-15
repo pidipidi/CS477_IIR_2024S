@@ -17,6 +17,7 @@ sudo apt-get -y update
 sudo apt-get -y install librealsense2-dkms
 sudo apt-get -y install librealsense2-utils
 sudo apt-get -y install librealsense2-dev
+sudo apt-get -y install ros-foxy-realsense2-*
 
 # Install default requirements
 pip3 install -r ./src/CS477_IIR_2024S/requirements.txt
