@@ -35,9 +35,9 @@ After installation, build the packages.
 colcon build --symlink-install
 ~~~~
 
-Check that all the packages are successfully built. If you encounter some errors, please try several time again and check the troubleshooting below. 
+**Check that all the packages are successfully built.** If you encounter some errors, please try several time again and check the [troubleshooting](https://github.com/pidipidi/CS477_IIR_2024S/blob/main/README.md#troubleshooting). 
 You may ignore some warnings like CATKIN~~ or allow-override.
-After building the packages source it.
+After building the packages, please source it.
 
 ~~~~bash
 source ./install/local_setup.bash
