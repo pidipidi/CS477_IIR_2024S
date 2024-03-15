@@ -30,6 +30,19 @@ source ./src/CS477_IIR_2024S/install.sh
 source ./src/CS477_IIR_2024S/install_arm.sh
 ~~~~
 
+After installation, build the packages.
+~~~~bash
+colcon build --symlink-install
+~~~~
+
+Check that all the packages are successfully built. If you encounter some errors, please try several time again and check the troubleshooting below. 
+You may ignore some warnings like CATKIN~~ or allow-override.
+After building the packages source it.
+
+~~~~bash
+source ./install/local_setup.bash
+~~~~
+
 Open a new terminal, source your main ROS2 environment and source this repo as an overlay.
 ~~~~bash
 source /opt/ros/foxy/setup.bash
@@ -58,11 +71,35 @@ source ~/.bashrc
 
 - [Manipulation Challenge](manip_challenge/README.md)
 
+# Troubleshooting
+
+## 1. Could not determine ref type of version : git@github.com: Permission denied (publickey)
+
+Please set up your ssh key. You can follow the procedure in the [link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+
+## 2. cc1plus killed
+
+This is memory issue of your device. First you can try
+
+~~~~bash
+colcon build --symlink-install --parallel-workers=1 --cmake-args -DCMAKE_CXX_FLAGS="--param ggc-min-expand=20"
+~~~~
+
+If the error persists and you are using VM for the ubuntu, you can try to increase the usage of your VM.
+If you are using wsl2, you can follow [link](https://fizzylogic.nl/2023/01/05/how-to-configure-memory-limits-in-wsl2).
+If you are using UTM, you can find memory setting slot in: select your VM image -> click upperwrite setting button(edit selected VM) -> system -> system.
+
+We recommend you to allocate as much as you can, but the minimal guideline is 12GB.
+
+## 3. gazebo dies after clean installation
+
+First, make sure that all the packages are successfully built before running the script.
+If you checked all installation/build is properly done, the problem might be solved by allocating more memory since gazebo depends heavily on RAM specification.
+Check above section about allocating more memory to your VM.
 
 # ETC
 There are many useful command-line tools like rostopic, rqt_graph, rosbag, etc. Please, see http://wiki.ros.org/ROS/CommandLineTools
 
 There may be password authentification issue. Please, check following [answers](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to, "stackoverflow link")
-
 
 
