@@ -36,8 +36,4 @@ sudo dpkg -i ./src/CS477_IIR_2024S/ros-foxy-gazebo-grasp-plugin_1.0.2-0focal_arm
 sudo dpkg -i ./src/CS477_IIR_2024S/ros-foxy-gazebo-version-helpers_0.0.0-0focal_arm64.deb
 sudo dpkg -i ./src/CS477_IIR_2024S/ros-foxy-roboticsgroup-upatras-gazebo-plugins_0.2.0-0focal_arm64.deb
 
-colcon build --symlink-install --packages-ignore gazebo_plugins realsense_gazebo_plugin
-colcon build --symlink-install --packages-select gazebo_plugins realsense_gazebo_plugin --parallel-workers=1 --cmake-args -DCMAKE_CXX_FLAGS="--param ggc-min-expand=20"
-source ./install/local_setup.bash
-
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
