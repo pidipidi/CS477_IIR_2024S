@@ -181,6 +181,15 @@ def generate_launch_description():
              'joint_state_broadcaster'],
         output='screen'
     )
+
+    # Static TF NODE:
+    static_tf_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        output='screen',
+        arguments=["0.16","0","0","1.5708","0","1.5708","robotiq_85_base_link", "tool_center_point"],
+    )
+    
     
     # Cell Layout:
     print("- GUI:")
@@ -211,6 +220,7 @@ def generate_launch_description():
             init_joints,
             add_object_prefix,
             add_object,
+            static_tf_publisher,
             ])
     
     return LaunchDescription([
@@ -223,4 +233,5 @@ def generate_launch_description():
         init_joints,
         add_object_prefix,
         add_object,
+        static_tf_publisher,
     ])

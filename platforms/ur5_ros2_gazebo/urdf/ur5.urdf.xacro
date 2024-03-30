@@ -103,13 +103,13 @@
   <link name="robotiq_coupler">
     <visual>
       <geometry>
-        <mesh filename="$(find robotiq_85_description)/meshes/visual/ur_to_robotiq_adapter.dae" />
+        <mesh filename="file://$(find robotiq_85_description)/meshes/visual/ur_to_robotiq_adapter.dae" />
       </geometry>
       <material name="flat_black"/>
     </visual>
     <!--collision>
       <geometry>
-        <mesh filename="$(find robotiq_85_description)/meshes/collision/ur_to_robotiq_adapter.stl" />
+        <mesh filename="file://$(find robotiq_85_description)/meshes/collision/ur_to_robotiq_adapter.stl" />
       </geometry>
     </collision-->
     <inertial>
