@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>hrl_geom</name>
+  <version>0.1.0</version>
+  <description>
+
+      Contains pose_converter, a set of Python scripts which automatically
+      detect the type of the input position/orientation pose and allows
+      you to convert to any of the other types in a single call.  Also contains
+      a copy of transformations.py
+
+  </description>
+
+  <author email="kphawkins@gatech.edu">Kelsey Hawkins</author>
+  <maintainer email="daehyung@kaist.ac.kr">Daehyung Park</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  
+  <export>
+      <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pykdl_utils</name>
+  <version>0.1.0</version>
+  <description>
+
+    pykdl_utils contains kdl_parser.py, for parsing URDF objects
+     from the robot_model_py stack into PyKDL trees and chains, 
+     and kdl_kinematics.py, for wrapping KDL kinematics calls, making
+     kinematics requests in Python far simpler.  jointspace_kdl_kin.py
+     also contains a KDLKinematics superclass which subscribes to /joint_states,
+     automatically filling the FK and jacobian requests with the current joint
+     angles.
+
+  </description>
+
+  <maintainer email="daehyung@kaist.ac.kr">Daehyung Park</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/pykdl_utils</url>
+
+  <author email="kphawkins@gatech.edu">Kelsey Hawkins</author>
+
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
+  <depend>urdfdom_py</depend>
+  <depend>hrl_geom</depend>
+
+  
+  <export>
+      <build_type>ament_python</build_type>
+  </export>
+</package>
