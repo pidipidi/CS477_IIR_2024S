@@ -1,0 +1,3 @@
+string data
+---
+action_msgs/GoalStatus goal_status

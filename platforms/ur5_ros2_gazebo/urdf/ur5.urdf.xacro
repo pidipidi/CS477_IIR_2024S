@@ -76,7 +76,11 @@
   <!-- CONTROLLER:  -->
   <xacro:arg name="hardware_interface" default="true"/>
   <xacro:property name="hardware_interface" value="$(arg hardware_interface)"/>
+  <!-- CAMERA:  -->
+  <xacro:arg name="camera_enabled" default="false"/>
+  <xacro:property name="camera_enabled" value="$(arg camera_enabled)"/>
 
+  
   <!-- END-EFFECTOR:  -->
   <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper_macro.urdf.xacro" />
   
@@ -159,13 +163,13 @@
         <mass value="100"/>
         <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-      <collision name='collision'>
+      <collision>
         <origin xyz="0 0 0" rpy=" 0 0 0"/> 
         <geometry>
           <box size = "0.2 0.2 0.2"/>
         </geometry>
       </collision>
-      <visual name='chassis_visual'>
+      <visual>
         <origin xyz="0 0 0" rpy=" 0 0 0"/>
         <geometry>
           <box size = "0.2 0.2 0.2"/>
@@ -191,15 +195,51 @@
     </joint>
   </xacro:if>
 
-  <!-- <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so"> -->
-  <!--   <ros> -->
-  <!--     <namespace>/gazebo</namespace> -->
-  <!--   </ros> -->
-    
-  <!--   <update_rate>1.0</update_rate> -->
-  <!-- </plugin> -->
 
-  <!-- Gripper cancle topic -->                                                                
+  <xacro:if value="${camera_enabled}">
+    <!-- top-down view camera -->
+    <xacro:include filename="$(find ur5_ros2_gazebo)/urdf/sensors/d435.urdf.xacro" />
+    <!-- top-down view Camera Link -->
+    <xacro:sensor_d435 name="camera" topics_ns="camera" parent="world" >
+      <origin xyz="0.65 0.0 1.4" rpy="0 1.575796 0"/>
+    </xacro:sensor_d435>
+    
+    <!-- wrist camera -->
+    <joint name="camera_base_joint" type="fixed">
+      <parent link="robotiq_85_base_link"/>
+      <child link="wrist_camera_base_link" />
+      <origin xyz="-0.0 0.0 0.0" rpy="1.575796 0 1.575796"/>
+    </joint>
+
+    <link name="wrist_camera_base_link">
+      <visual>
+        <geometry>
+          <mesh filename="file://$(find robotiq_85_description)/meshes/visual/d435_UR5_camera_mount.dae" scale="0.001 0.001 0.001"/>
+        </geometry>                
+      </visual>
+      <!-- <collision>
+           <geometry>
+           <mesh filename="package://robotiq_85_description/meshes/collision/d435_UR5_camera_mount.stl"/>
+           </geometry>
+           </collision> -->
+      <inertial>
+        <mass value="0.019555" />
+        <origin xyz="0.0 0.0 0.0" />
+        <inertia ixx = "0.000002" ixy = "0.000000" ixz = "0.000000"
+                 iyx = "0.000000" iyy = "0.000005" iyz = "0.000000"
+                 izx = "0.000000" izy = "0.000000" izz = "0.000006" />
+      </inertial>            
+    </link>
+
+    <xacro:sensor_d435 name="wrist_camera" topics_ns="wrist_camera" parent="wrist_camera_base_link" >
+      <origin xyz="0.0 0.08 0.015" rpy="1.575796 -1.575796 0"/>
+    </xacro:sensor_d435>
+    
+  </xacro:if>
+
+  
+
+  <!-- Gripper cancel topic -->                                                                
   <xacro:arg name="gripper_action_topic"
              default="gripper_controller/follow_joint_trajectory"/>   
   <!-- Grasp Plugin -->

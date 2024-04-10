@@ -47,6 +47,9 @@ def generate_launch_description():
 
     # Selection of Controller
     hardware_interface = "EffortJointInterface"
+
+    # Camera
+    camera_enabled = "false"
     
     # ***** ROBOT DESCRIPTION ***** #
     # UR5 ROBOT Description file package:
@@ -62,7 +65,9 @@ def generate_launch_description():
     xacro.process_doc(doc, mappings={
         "cell_layout_1": cell_layout_1,
         "cell_layout_2": cell_layout_2,
-        "hardware_interface": hardware_interface,})
+        "hardware_interface": hardware_interface,
+        "camera_enabled": camera_enabled,
+        })
     robot_description_config = doc.toxml()
     robot_description = {'robot_description': robot_description_config}
 

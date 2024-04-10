@@ -134,6 +134,8 @@ def generate_launch_description():
     xacro.process_doc(doc, mappings={
         "cell_layout_1": cell_layout_1,
         "cell_layout_2": cell_layout_2,
+        'hardware_interface': "PositionJointInterface",
+        'camera_enabled': "false",
         "EE_no": EE_no,
         # "EE_**": EE_**,
         })

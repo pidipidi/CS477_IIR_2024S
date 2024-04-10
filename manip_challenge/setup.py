@@ -46,18 +46,16 @@ setup(
         'console_scripts': [
             'add_object = manip_challenge.add_object:main',
             'init_joints = manip_challenge.init_joints:main',
+            'world_model_gazebo = manip_challenge.world_model_gazebo:main',
+            'get_joint    = manip_challenge.get_joint:main',            
+            'get_pose     = manip_challenge.get_pose:main',            
+            'move_gripper = manip_challenge.move_gripper:main',
+            'move_joint   = manip_challenge.move_joint:main',            
+            'example1   = manip_challenge.example1:main',            
+            'example2   = manip_challenge.example2:main',
+            'item_list_pub = manip_challenge.item_list_pub:main',
+            'item_list_sub = manip_challenge.item_list_sub:main',
             ],
     },
 )
-
-
-# #!/usr/bin/env python
-# from distutils.core import setup
-# from catkin_pkg.python_setup import generate_distutils_setup
-
-# d = generate_distutils_setup()
-# d['packages'] = ['manip_challenge']
-# d['package_dir'] = {'': 'src'}
-
-# setup(**d)
 
