@@ -73,6 +73,14 @@ source ~/.bashrc
 
 # Troubleshooting
 
+## 0. `~~PackageNotFound`
+
+This may happen when you build the updated package without cleaning the previous build. Please, clean the previous build and build again. You can do this by
+
+~~~~bash
+rm -rf install build log
+~~~~
+
 ## 1. `Could not determine ref type of version : git@github.com: Permission denied (publickey)`
 
 Please set up your ssh key. You can follow the procedure in the [link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
