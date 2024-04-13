@@ -22,7 +22,7 @@ setup(
         'console_scripts': [
             'move_joint = assignment_2.move_joint:main',
             'forward_kin = assignment_2.forward_kin:main',            
-            'inverse_kin = assignment_2.solution.inverse_kin_sol:main',            
+            'inverse_kin = assignment_2.inverse_kin:main',            
         ],
     },
 )
