@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'min_jerk = assignment_3.solution.min_jerk:main',
-            'move_joint = assignment_3.solution.move_joint:main',
+            'min_jerk = assignment_3.min_jerk:main',
+            'move_joint = assignment_3.move_joint:main',
             'add_object = assignment_3.add_object:main',
             'move_astar = assignment_3.move_astar:main',
         ],
