@@ -35,13 +35,13 @@ def generate_launch_description():
     # ***** GAZEBO ***** #   
     # DECLARE Gazebo WORLD file:
     world = os.path.join(
-      get_package_share_directory('manip_challenge'),
+      get_package_share_directory('manip_challenge'), 'data',
       'worlds',
       'ur5_picking_challenge.world')
     
     # DECLARE Gazebo LAUNCH file:
     manip_challenge_models = os.path.join(
-      get_package_share_directory('manip_challenge'),
+      get_package_share_directory('manip_challenge'), 'data',
       'models')
     
     if 'GAZEBO_MODEL_PATH' in os.environ:

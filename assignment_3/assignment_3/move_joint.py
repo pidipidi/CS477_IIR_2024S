@@ -41,7 +41,7 @@ from assignment_3 import quaternion
 from assignment_2 import misc
 
 #import min_jerk as mj
-from assignment_3.solution import min_jerk_sol as mj
+from assignment_3 import min_jerk as mj
 
 JOINT_NAMES = ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint',
                'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']

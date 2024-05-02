@@ -12,7 +12,7 @@ Select the 'position' controller pressing '1'. If this is your first trial, it m
 
 Terminal 2
 ~~~~bash
-ros2 run manip_challenge example1
+ros2 run manip_challenge example1.py
 ~~~~
 You will be able to see how to send joint command and also close/open the gripper.
 
@@ -41,6 +41,6 @@ ros2 run manip_challenge item_list_pub
 ## How to query the pose of an object in the world model?
 We are using the physics-based simulator, GAZEBO, for this challenge. Without using any perception method, we can identify and obtain the state of objects by subscribing the internal topics from GAZEO. Following commands and code show how to query the pose of a specific object:
 ~~~~bash
-ros2 run manip_challenge example2
+ros2 run manip_challenge example2.py
 ~~~~
 

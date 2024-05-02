@@ -26,7 +26,7 @@ def main():
     time.sleep(5)
 
 
-    from assignment_3.solution import move_joint_sol as mj
+    from assignment_3 import move_joint as mj
     arm = mj.ArmClient()
     arm.move_joint([0.1646, -1.3117, 1.9484, -2.2074, -1.5707, 0.1646])
 

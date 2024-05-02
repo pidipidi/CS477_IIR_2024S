@@ -2,42 +2,40 @@
 import os
 from glob import glob
 from setuptools import setup
+from pathlib import Path
     
 package_name = 'manip_challenge'
 
-# def get_model_files():
-#     model_files = []
-#     for root, dirs, files in os.walk('models'):
-#         for file in files:
-#             model_files.append(os.path.join(root, file))
-#     return model_files
 
-def get_model_files():
-    model_files = []
-    for root, dirs, files in os.walk('models'):
-        for file in files:
-            file_path = os.path.join(root, file)
-            # 'models' 디렉토리 이후의 상대 경로 계산
-            relative_path = os.path.relpath(os.path.dirname(file_path), 'models')
-            model_files.append((os.path.join('share', package_name, 'models', relative_path), glob(file_path)))
-            # print(package_name, 'models', relative_path, file_path)
-    return model_files
+data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+    ]
+
+def package_files(data_files, directory_list):
+
+    paths_dict = {}
+    for directory in directory_list:
+        for (path, directories, filenames) in os.walk(directory):
+            for filename in filenames:
+                file_path = os.path.join(path, filename)
+                install_path = os.path.join('share', package_name, path)
+                if install_path in paths_dict.keys():
+                    paths_dict[install_path].append(file_path)
+                else:
+                    paths_dict[install_path] = [file_path]
+
+    for key in paths_dict.keys():
+        data_files.append((key, paths_dict[key]))
+
+    return data_files
 
 setup(
     name=package_name,
     version='0.0.1',
     packages=[package_name],
-    data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-        (os.path.join('share', package_name, 'config'), glob(os.path.join('config','*.rviz'))),
-        (os.path.join('share', package_name, 'config'), glob(os.path.join('config','*.yaml'))),       
-        (os.path.join('share', package_name, 'worlds'), glob(os.path.join('worlds','*.world'))),
-        # (os.path.join('share', package_name, 'models'), get_model_files()),     
-        *get_model_files(),
-    ],
+    data_files=package_files(data_files, ['data/models/', 'launch/', 'data/worlds/', 'config']),
     install_requires=['setuptools'],
     zip_safe=True,
     author='Daehyung Park',
