@@ -257,7 +257,7 @@
       <max_grip_count>8</max_grip_count>
       <!--release_tolerance>0.0125</release_tolerance--> 
       <release_tolerance>0.0025</release_tolerance> 
-      <disable_collisions_on_attach>true</disable_collisions_on_attach>
+      <disable_collisions_on_attach>false</disable_collisions_on_attach>
       <contact_topic>__default_topic__</contact_topic>
       <!-- Cancel Action ... -->                                                           
       <action_topic>$(arg gripper_action_topic)</action_topic>   
